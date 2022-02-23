@@ -1,0 +1,50 @@
+
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+DROP TABLE IF EXISTS students;
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+    name VARCHAR (32)
+ );
+
+DROP TABLE IF EXISTS categories;
+CREATE TABLE categories (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+    name VARCHAR (32)
+ );
+
+DROP TABLE IF EXISTS online_course;
+CREATE TABLE online_course
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+    category_id INT UNSIGNED NOT NULL,
+    name VARCHAR (32)
+);
+
+DROP TABLE IF EXISTS offline_course;
+CREATE TABLE offline_course
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+    category_id INT UNSIGNED NOT NULL,
+    name VARCHAR (32)
+);
+
+DROP TABLE IF EXISTS student_onlinecourse;
+CREATE TABLE student_onlinecourse
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+    student_id INT UNSIGNED NOT NULL,
+    course_id INT UNSIGNED NOT NULL
+);
+
+DROP TABLE IF EXISTS student_offlinecourse;
+CREATE TABLE student_offlinecourse
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+    student_id INT UNSIGNED NOT NULL,
+    course_id INT UNSIGNED NOT NULL
+);
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;

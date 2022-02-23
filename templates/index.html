@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block header%}
+  {% include "inc_header.html" %}
+{% endblock %}
+
+{% block body %}
+    <div id="site_content">
+      <div id="banner"> </div>
+	  <div id="sidebar_container">
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <a href="/"><h3>Главная страница</h3></a>
+            <a href="/add-student/"><h3>Добавить студента на курс</h3></a>
+            <a href="/students-list/"><h3>Список студентов</h3></a>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <h1>Курсы флористики по категориям</h1>
+        <a href="/create_category/"> Создать категорию </a>
+            <h1>Список существующих категорий</h1>
+              {% for item in categories %}
+                <ul>
+                  <li>
+                    {{item.name}}
+                    <a href="/course-list/?id={{item.id}}">Показать курсы</a>
+                  </li>
+                </ul>
+              {% endfor %}
+      </div>
+    </div>
+{% endblock %}
+
+{% block footer%}
+  {% include "inc_footer.html" %}
+{% endblock %}
+

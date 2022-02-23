@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block header%}
+    {% include "inc_header.html" %}
+{% endblock %}
+
+{% block body %}
+    <div id="site_content">
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Свяжитесь с нами</h1>
+        <p>Оставьте свое сообщение и мы с вами обязательно свяжимся</p>
+          <div class="form_settings">
+             <form method="post" action="#" id="search_form">
+                <p><span>Имя</span><input class="contact" type="text" name="name" value="" /></p>
+                <p><span>Email</span><input class="contact" type="text" name="email" value="" /></p>
+                <p><span>Сообщение</span><textarea class="contact textarea" rows="8" cols="50" name="message"></textarea></p>
+                <button class="submit" type="submit" value="Отправить" > Отправить </button>
+             </form>
+          </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block footer%}
+    {% include "inc_footer.html" %}
+{% endblock %}

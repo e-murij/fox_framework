@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Create category
+{% endblock %}
+
+{% block header%}
+  {% include "inc_header.html" %}
+{% endblock %}
+
+
+{% block body %}
+    <div id="site_content">
+       <div id="banner"> </div>
+	<div id="sidebar_container">
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <a href="/"><h3>Главная страница</h3></a>
+            <a href="/add-student/"><h3>Добавить студента на курс</h3></a>
+            <a href="/students-list/"><h3>Список студентов</h3></a>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Добавление студента на курс</h1>
+        <p>Введите название курса и студента</p>
+          <div class="form_settings">
+             <form method="post" action="#" id="search_form">
+                 <p><span>Курс</span>
+                     <select name="course">
+                         {% for item in course_list %}
+                            <option value="{{item.name}}"> {{item.name}} </option>
+                         {% endfor %}
+                     </select>
+                 </p>
+                 <p><span>Студент</span>
+                     <select name="student">
+                         {% for item in student_list %}
+                            <option value="{{item.name}}"> {{item.name}} </option>
+                         {% endfor %}
+                     </select>
+                 </p>
+                <button class="submit" type="submit" value="Отправить"> Отправить </button>
+             </form>
+          </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block footer%}
+  {% include "inc_footer.html" %}
+{% endblock %}
